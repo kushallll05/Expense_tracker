@@ -1,0 +1,232 @@
+/* Modern Dark Charcoal Glassmorphism Theme for AI Expense Tracker */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --bg-primary: #080c14;
+  --bg-surface: #0f1626;
+  --bg-card: rgba(19, 27, 46, 0.75);
+  --border-card: rgba(56, 189, 248, 0.15);
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --accent-cyan: #06b6d4;
+  --accent-blue: #38bdf8;
+  --accent-violet: #a855f7;
+  --accent-emerald: #10b981;
+  --accent-rose: #f43f5e;
+  --accent-amber: #f59e0b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --glow-cyan: 0 0 20px rgba(6, 182, 212, 0.35);
+  --glow-blue: 0 0 20px rgba(56, 189, 248, 0.35);
+  --glow-violet: 0 0 20px rgba(168, 85, 247, 0.35);
+}
+
+/* Base Body & App Container */
+html, body, [data-testid="stAppViewContainer"] {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+}
+
+[data-testid="stHeader"] {
+  background: transparent !important;
+}
+
+[data-testid="stToolbar"] {
+  right: 2rem;
+}
+
+/* Sidebar Styling */
+[data-testid="stSidebar"] {
+  background-color: #0b111e !important;
+  border-right: 1px solid var(--border-subtle) !important;
+}
+
+[data-testid="stSidebar"] hr {
+  border-color: var(--border-subtle) !important;
+}
+
+/* Glassmorphism Metric Cards */
+.metric-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.6), var(--glow-blue);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-violet));
+  opacity: 0.8;
+}
+
+.metric-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.metric-value {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: -0.02em;
+}
+
+.metric-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Badge Styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.badge-income {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-expense {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+.badge-info {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-purple {
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+/* Insight Card */
+.insight-card {
+  background: rgba(19, 27, 46, 0.85);
+  border-left: 4px solid var(--accent-blue);
+  border-radius: 10px;
+  padding: 1.1rem 1.3rem;
+  margin-bottom: 0.9rem;
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-subtle);
+  border-right: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.insight-card:hover {
+  transform: translateX(4px);
+  border-left-color: var(--accent-cyan);
+}
+
+.insight-card.warning {
+  border-left-color: var(--accent-amber);
+}
+
+.insight-card.danger {
+  border-left-color: var(--accent-rose);
+}
+
+.insight-card.success {
+  border-left-color: var(--accent-emerald);
+}
+
+/* Natural Language Input Container */
+.nl-box {
+  background: rgba(19, 27, 46, 0.9);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 24px rgba(6, 182, 212, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+/* Glass Section Container */
+.glass-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  margin-bottom: 1.5rem;
+}
+
+/* Table Enhancements */
+div[data-testid="stDataFrame"] {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+/* Button overrides for sleek fintech vibe */
+.stButton > button {
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.01em !important;
+  transition: all 0.2s ease !important;
+}
+
+.stButton > button[kind="primary"] {
+  background: linear-gradient(135deg, #0ea5e9, #8b5cf6) !important;
+  border: none !important;
+  color: white !important;
+  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35) !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.55) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Streamlit Alert customization */
+.stAlert {
+  border-radius: 12px !important;
+  backdrop-filter: blur(8px) !important;
+}
